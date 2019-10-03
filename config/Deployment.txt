@@ -1,0 +1,15 @@
+Disconnect-PnPOnline
+Connect-PnPOnline -SPOManagementShell -Url https://YourTenant.sharepoint.com/ -ClearTokenCach
+
+Add-PnPCustomAction -ClientSideComponentId "764390ad-3228-4a6d-986d-dd6649bce2c4" -Name "GA" -Title "GA Analytics" -Location ClientSideExtension.ApplicationCustomizer -ClientSideComponentProperties: '{"trackingID":"UA-XXXXXXXXXX"}' -Scope site
+
+Get-PnPCustomAction -Scope site
+
+Remove-PnPCustomAction -Identity 7b6a03da-b6c2-4d59-97c0-b71654020864 -scope site
+
+
+----------------git hub configuraiton ---------------------------------------------------------
+
+git remote remove origin
+git remote add origin https://github.com/rahulbarua87/GA-SPModernSite.git
+git push -u origin master
